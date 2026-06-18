@@ -1,0 +1,509 @@
+/* --- VARIABLES DE COULEURS --- */
+:root {
+  --color-yellow: #FFDD00;
+  --color-black: #000000;
+  --color-bg-nav: #edeff3;       /* Fond gris/bleuté de la nav */
+  --color-bg-mobile-footer: #d9e1ec; /* Zone grise foncée en bas du mobile */
+  --color-bg-mobile-btn: #e1e8f0;    /* Boutons gris clair sur mobile */
+  --color-blue-active: #004b87;     /* Bordure de sélection active mobile */
+  --color-border-gray: #dcdcdc;     /* Séparateurs de lignes sur mobile */
+}
+
+/* --- RESET GLOBAL --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #eaedf1;
+}
+/* --- AFFICHAGE VERSION PC (PAR DÉFAUT) --- */
+.navbar {
+  background-color: var(--color-bg-nav);
+  width: 100%;
+  position: sticky;
+  /* display: flex; */
+
+  top: 0;
+  z-index: 1000;
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e8f0;
+  gap: 20px;
+}
+
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  gap: 20px;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  gap: 6px;
+}
+
+.logo-bank {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  font-weight: 800;
+  font-size: 11px;
+  line-height: 0.95;
+  padding: 8px 10px;
+  text-transform: lowercase;
+  text-align: center;
+}
+.logo-bank span {
+  font-size: 18px;
+}
+
+.logo-post {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.nav-header  .nav-brand img{
+  width: 150px;
+  height: 70px;
+}
+/* --- STYLES PC CACHÉS ABSOLUMENT --- */
+.mobile-search, .burger-menu, .arrow-mobile-only, .arrow-btn-mobile-only {
+  display: none !important;
+}
+
+/* CONTENU PC ALIGNÉ SUR UNE LIGNE */
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin-left: 0px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* BOUTONS ACTIONS VERSION PC */
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+  margin-left: 20px;
+}
+
+.btn-yellow {
+  background-color: var(--color-yellow);
+  border: none;
+  color: var(--color-black);
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chevron-pc-only {
+  font-size: 12px;
+  display: inline-block;
+}
+
+
+/* ==========================================================================
+   RÈGLES RESPONSIVE STRICTES : MODE MOBILE & TÉLÉPHONE (max-width: 1150px)
+   ========================================================================== */
+@media (max-width: 1150px) {
+  
+  .nav-container {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+  }
+
+  .nav-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    gap: 0;
+  }
+  .nav-header  .nav-brand img{
+  width: 120px;
+  height: 50px;
+}
+  /* Affichage de la recherche uniquement sur mobile */
+  .mobile-search {
+    display: flex !important;
+    align-items: center;
+    background-color: var(--color-bg-mobile-footer);
+    padding: 15px 10px;
+    border-radius: 30px;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-black);
+    max-width: 210px;
+    width: 100%;
+  }
+
+  /* Affichage du bouton burger uniquement sur mobile */
+  .burger-menu {
+    display: block !important;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    color: var(--color-black);
+    cursor: pointer;
+  }
+
+  /* RESTRUCTURATION COMPLÈTE DU CONTENU EN MODE MOBILE (FULLSCREEN) */
+  .nav-content {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: fit-content;
+    background-color: var(--color-bg-nav);
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0;
+    padding: 8px 10px;
+    display: flex;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  .nav-content.open {
+    transform: translateX(0);
+  }
+
+  /* LIENS EN VERTICAL POUR TÉLÉPHONE */
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    font-size: 22px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--color-border-gray);
+  }
+
+
+  /* FILTRAGE STRICT DES ICÔNES MOBILES */
+  .arrow-mobile-only {
+    display: block !important; /* Fait apparaitre le chevron droit (>) sur mobile */
+    font-size: 18px;
+  }
+
+  .chevron-pc-only {
+    display: none !important; /* Supprime le chevron bas (v) sur mobile */
+  }
+
+  .arrow-btn-mobile-only {
+    display: inline-block !important; /* Fait apparaitre la flèche (->) sur les boutons mobile */
+  }
+
+  /* MODULE FOOTER GRIS TOUT EN BAS SUR TÉLÉPHONE */
+  .nav-buttons-container {
+    width: 100%;
+    background-color: var(--color-bg-mobile-footer);
+    padding: 10px 15px;
+    border-radius: 30px;
+    margin-top: 30px;
+  }
+
+  .nav-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    
+    /* margin-top: -200px; */
+  }
+
+  /* Style plat gris clair pour les boutons en bas du mobile */
+  .nav-buttons .btn-yellow, 
+  .nav-buttons .btn-outline {
+    width: 100%;
+    background-color: var(--color-bg-mobile-btn);
+    color: var(--color-black);
+    border: none;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 5px;
+    border-radius: 25px;
+  }
+}
+
+
+/* --- EXTENSION DU STYLE POUR LE FOOTER --- */
+
+.footer {
+  background-color: var(--color-bg-nav); /* Même fond gris/bleuté léger */
+  width: 100%;
+  padding: 60px 0 40px 0;
+  border-top: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+/* GRILLE DES 4 COLONNES (PC) */
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-col h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: var(--color-black);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+
+.footer-col ul li a:hover {
+  opacity: 0.7;
+}
+
+/* Icônes à gauche des liens */
+.icon-left {
+  width: 20px;
+  font-size: 16px;
+  margin-right: 10px;
+  color: var(--color-black);
+  text-align: center;
+}
+
+/* Ligne spécifique pour le numéro de téléphone et ses horaires */
+.phone-line {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.phone-line span {
+  font-size: 12px;
+  color: #64748b;
+  padding-left: 30px; /* Aligné sous le numéro, après l'icône */
+}
+
+/* BADGES LOGOS STYLE DE LA COLONNE APPLICATIONS */
+.logo-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 7px;
+  line-height: 0.9;
+  margin-right: 12px;
+  color: var(--color-black);
+}
+.logo-badge span {
+  font-size: 11px;
+}
+
+.mini-bank { background-color: var(--color-yellow); }
+.mini-okay { background-color: var(--color-yellow); }
+.mini-wallet { 
+  background-color: var(--color-yellow); 
+  font-size: 14px;
+}
+
+/* BOUTON RETOUR EN HAUT */
+.scroll-to-top {
+  position: absolute;
+  top: -20px;
+  right: 40px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: var(--color-black);
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+.scroll-to-top:hover {
+  transform: translateY(-3px);
+}
+
+/* --- SECTION INFÉRIEURE : PARTENAIRES & RÉSEAUX --- */
+.footer-bottom {
+  border-top: 1px solid #cbd5e1;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-bottom h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 15px;
+}
+
+/* Logos partenaires */
+.partners-logos img {
+  height: 40px; /* Hauteur ajustée pour aligner proprement ton fichier log.png */
+  object-fit: contain;
+  display: block;
+}
+
+/* Réseaux Sociaux */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  background-color: #ffffff;
+  color: var(--color-black);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.social-icons a:hover {
+  background-color: var(--color-black);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   RESPONSIVE FOOTER (TABLETTE & TÉLÉPHONE)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .footer-links-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes par ligne sur tablette */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 40px 0 30px 0;
+  }
+  
+  .footer-container {
+    padding: 0 20px;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: 1fr; /* 1 seule colonne par ligne sur petit mobile */
+    gap: 25px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .partners-logos, .social-icons {
+    justify-content: center;
+  }
+
+  .scroll-to-top {
+    right: 20px;
+    top: -15px;
+  }
+}

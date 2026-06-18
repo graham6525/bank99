@@ -1,0 +1,853 @@
+/* --- VARIABLES DE COULEURS --- */
+:root {
+  --color-yellow: #FFDD00;
+  --color-black: #000000;
+  --color-bg-nav: #edeff3;       /* Fond gris/bleuté de la nav */
+  --color-bg-mobile-footer: #d9e1ec; /* Zone grise foncée en bas du mobile */
+  --color-bg-mobile-btn: #e1e8f0;    /* Boutons gris clair sur mobile */
+  --color-blue-active: #004b87;     /* Bordure de sélection active mobile */
+  --color-border-gray: #dcdcdc;     /* Séparateurs de lignes sur mobile */
+}
+
+/* --- SECTION HERO STYLE DE BASE --- */
+.hero-section {
+  width: 100%;
+  background-color: #ebf0f5; /* S'accorde parfaitement avec ton fond nav/footer */
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+/* ZONE CONTENEUR DE SLIDE */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  min-height: 450px;
+}
+
+.hero-slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out;
+  gap: 30px;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+}
+
+/* BLOC TEXTE (GAUCHE) */
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #000000;
+  margin-bottom: 24px;
+}
+
+.hero-highlight {
+  font-weight: 800;
+  color: #000000;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.hero-warning {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+/* BOUTON JAUNE OVALE */
+.hero-btn {
+  background-color: var(--color-yellow, #FFDD00);
+  color: #000000;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s;
+}
+.hero-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* BLOC IMAGE (DROITE) */
+.hero-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-img {
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+/* BADGE BLEU FLOTTANT (DIAPO 2) */
+.hero-badge {
+  position: absolute;
+  top: -10px;
+  left: 10%;
+  background-color: #0071c5;
+  color: #ffffff;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+/* SYSTEME DE NAVIGATION (DOTS + FLÈCHE PLAY) */
+.hero-navigation {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.hero-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.3s;
+}
+
+.hero-dot.active {
+  background-color: var(--color-yellow, #FFDD00);
+}
+
+.hero-next-arrow {
+  background: transparent;
+  border: none;
+  color: #000000;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE AVANCÉ : LES TEXTES EN HAUT & IMAGES EN BAS SUR MOBILE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 30px 0;
+  }
+  
+  .hero-container {
+    padding: 0 20px;
+  }
+
+  .hero-slider {
+    min-height: auto;
+  }
+
+  .hero-slide {
+    flex-direction: column; /* Force l'alignement vertical */
+    text-align: left;
+    position: relative;
+    gap: 30px;
+    opacity: 0;
+    display: none;
+  }
+
+  .hero-slide.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    order: 1; /* Le texte reste en haut */
+  }
+
+  .hero-title {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .hero-image-wrapper {
+    width: 100%;
+    order: 2; /* L'image descend en dessous */
+    justify-content: center;
+  }
+
+  .hero-img { 
+    height: auto; /* Redimensionnement de l'image sur écran mobile */
+    width: 85%;
+  }
+
+  .hero-badge {
+    width: 90px;
+    height: 90px;
+    font-size: 11px;
+    left: 5%;
+    top: -20px;
+  }
+
+  .hero-navigation {
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION : 3 BONNES RAISONS DE CHOISIR BANK99 (DESKTOP PAR DÉFAUT)
+   ========================================================================== */
+.reasons-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 80px 0;
+}
+
+.reasons-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.reasons-main-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 50px;
+  position: relative;
+  padding-top: 15px;
+  display: inline-block;
+}
+
+.reasons-main-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 3px;
+  background-color: #000000;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.reason-card {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.reason-image-box {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  width: 100%;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.reason-image-box img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+}
+
+.reason-content h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.reason-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #334155;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.reason-content p::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #e2e8f0;
+}
+
+.reasons-mobile-dots {
+  display: none;
+}
+/* ==========================================================================
+   VERSION RESPONSIVE STRICTE MOBILE (ALIGNEMENT VERTICAL DES BLOCS)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .reasons-section {
+    padding: 40px 0;
+  }
+
+  .reasons-container {
+    padding: 0 20px;
+  }
+
+  /* Titre principal centré */
+  .reasons-main-title {
+    font-size: 26px;
+    margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .reasons-main-title::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* On empile les cartes verticalement les unes sous les autres */
+  .reasons-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espace vertical entre chaque carte */
+  }
+
+  .reason-card {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  /* Le conteneur de l'image s'adapte à 100% de la largeur de l'écran */
+  .reason-image-box {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  /* L'icône reste centrée et garde de bonnes proportions */
+  .reason-image-box img {
+    height: 85px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Marges internes pour protéger le texte contre tout débordement */
+  .reason-content {
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .reason-content h3 {
+    font-size: 22px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+  }
+
+  .reason-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    padding-bottom: 20px;
+    margin: 0;
+    width: 100%;
+    word-wrap: break-word; /* Évite les coupures de mots étranges */
+  }
+
+  /* Centrage de la ligne grise décorative sous chaque texte */
+  .reason-content p::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+
+  /* Masquage définitif des dots puisqu'il n'y a plus de slider horizontal */
+  .reasons-mobile-dots {
+    display: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION CREDIT (DESKTOP)
+   ========================================================================== */
+.credit-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 0;
+}
+
+.credit-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Image à gauche */
+.credit-image-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.credit-image-box img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Contenu à droite */
+.credit-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Ligne noire au-dessus du titre */
+.credit-accent-line {
+  width: 100%;
+  max-width: 320px; /* Aligné sur la largeur du bloc de texte */
+  height: 3px;
+  background-color: #000000;
+  margin-bottom: 25px;
+}
+
+.credit-content h2 {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #000000;
+  margin-bottom: 25px;
+}
+
+.credit-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #000000;
+  font-weight: 500;
+  margin-bottom: 35px;
+  max-width: 500px;
+}
+
+/* Bouton Pilule Jaune */
+.btn-yellow-pill {
+  background-color: #FFDD00;
+  color: #000000;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.btn-yellow-pill:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   VERSION RESPONSIVE MOBILE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .credit-section {
+    padding: 40px 0;
+  }
+
+  .credit-container {
+    padding: 0 20px;
+    flex-direction: column; /* Empilement vertical */
+    gap: 35px;
+  }
+
+  /* Le contenu textuel passe en premier pour la lecture mobile */
+  .credit-content {
+    order: 1;
+    width: 100%;
+  }
+
+  .credit-accent-line {
+    max-width: 100%; /* La ligne s'adapte à la largeur du mobile */
+  }
+
+  .credit-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .credit-content p {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  .btn-yellow-pill {
+    width: 100%; /* Bouton pleine largeur sur mobile */
+    justify-content: center;
+  }
+
+  /* L'image passe en dessous sur mobile */
+  .credit-image-box {
+    order: 2;
+    width: 100%;
+  }
+
+  .credit-image-box img {
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION "QUOI DE NEUF?" (DESKTOP)
+   ========================================================================== */
+.news-section {
+  width: 100%;
+  background-color: #f1f5f9; /* Fond gris clair uniforme comme sur la maquette */
+  padding: 60px 0 80px 0;
+}
+
+.news-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* En-tête avec la ligne noire supérieure */
+.news-header {
+  margin-bottom: 40px;
+}
+
+.news-accent-line {
+  width: 140px;
+  height: 3px;
+  background-color: #000000;
+  margin-bottom: 15px;
+}
+
+.news-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #000000;
+  margin: 0;
+}
+
+/* Grille principale */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Style d'une carte blanche */
+.news-card {
+  background-color: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Ombre légère sous les cartes */
+}
+
+/* Zone Image */
+.news-image-box {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.news-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Contenu textuel centré sous l'image */
+.news-content {
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.news-content h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 14px;
+}
+
+.news-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 25px;
+  flex-grow: 1; /* Aligne les boutons si les hauteurs de texte diffèrent */
+}
+
+/* Bouton Pilule Jaune */
+.btn-yellow-news {
+  background-color: #FFDD00;
+  color: #000000;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-yellow-news:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   VERSION RESPONSIVE MOBILE
+   ========================================================================== */
+@media (max-width: 960px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr); /* Passe à 2 colonnes sur tablette */
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .news-section {
+    padding: 40px 0;
+  }
+
+  .news-container {
+    padding: 0 20px;
+  }
+
+  .news-accent-line {
+    margin-left: auto;
+    margin-right: auto; /* Centre la ligne sur mobile */
+  }
+
+  .news-title {
+    text-align: center;
+    font-size: 26px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr; /* 1 seule colonne empilée sur mobile */
+    gap: 25px;
+  }
+
+  .news-image-box {
+    height: 200px; /* Légère réduction de l'image sur petit écran */
+  }
+
+  .news-content {
+    padding: 25px 20px;
+  }
+
+  .btn-yellow-news {
+    width: 100%; /* Bouton pleine largeur pour une action facile sur mobile */
+    text-align: center;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION INFORMATIONS CLIENTS ING (DESKTOP)
+   ========================================================================== */
+.ing-services-section {
+  width: 100%;
+  background-color: #f1f5f9; /* Fond gris très clair uniforme */
+  padding: 80px 0;
+}
+
+.ing-services-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 80px; /* Grand espace entre l'image et le bloc de texte */
+}
+
+/* Image à gauche */
+.ing-services-image-box {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Aligne l'image vers le centre */
+}
+
+.ing-services-image-box img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Bloc de contenu à droite */
+.ing-services-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Ligne noire d'accentuation supérieure */
+.ing-accent-line {
+  width: 120px;
+  height: 3px;
+  background-color: #000000;
+  margin-bottom: 20px;
+}
+
+.ing-services-content h2 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #000000;
+  margin: 0 0 35px 0;
+}
+
+.ing-text-block h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 10px 0;
+}
+
+.ing-text-block p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000000;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Style du lien "ici" */
+.ing-link {
+  color: #004b87;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.ing-link:hover {
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   VERSION RESPONSIVE MOBILE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .ing-services-section {
+    padding: 50px 0;
+  }
+
+  .ing-services-container {
+    padding: 0 20px;
+    flex-direction: column; /* Empilement vertical sur mobile */
+    gap: 40px;
+  }
+
+  /* Le texte passe au-dessus sur mobile pour une meilleure hiérarchie */
+  .ing-services-content {
+    order: 1;
+    width: 100%;
+  }
+
+  .ing-services-content h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+
+  /* L'image passe en dessous */
+  .ing-services-image-box {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ing-services-image-box img {
+    max-width: 100%;
+  }
+}
