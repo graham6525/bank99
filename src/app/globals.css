@@ -184,6 +184,13 @@
 }
 
 
+.hero-btn {
+  text-decoration: none; /* Évite que le lien soit souligné */
+  display: inline-flex;  /* Aligne correctement le texte et l'icône de la flèche */
+  align-items: center;
+  justify-content: center;
+  /* Garde tes propriétés existantes de padding, background, border-radius, etc. */
+}
 /* ==========================================================================
    RESPONSIVE AVANCÉ : LES TEXTES EN HAUT & IMAGES EN BAS SUR MOBILE
    ========================================================================== */

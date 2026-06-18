@@ -172,21 +172,21 @@ body {
     gap: 0;
   }
   .nav-header  .nav-brand img{
-  width: 120px;
-  height: 50px;
+  width: 90px;
+  height: 40px;
 }
   /* Affichage de la recherche uniquement sur mobile */
   .mobile-search {
     display: flex !important;
     align-items: center;
     background-color: var(--color-bg-mobile-footer);
-    padding: 15px 10px;
+    padding: 8px 10px;
     border-radius: 30px;
     gap: 8px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--color-black);
-    max-width: 210px;
+    max-width: 190px;
     width: 100%;
   }
 
@@ -263,7 +263,7 @@ body {
   .nav-buttons-container {
     width: 100%;
     background-color: var(--color-bg-mobile-footer);
-    padding: 10px 15px;
+    padding: 8x 12px;
     border-radius: 30px;
     margin-top: 30px;
   }
@@ -291,6 +291,123 @@ body {
     border-radius: 25px;
   }
 }
+
+
+/* ==========================================================================
+   AJOUT CSS : MENUS DÉROULANTS (DROPDOWNS)
+   ========================================================================== */
+
+/* Structure du parent possédant un sous-menu */
+.has-dropdown {
+  position: relative;
+}
+
+.has-dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Flèche PC vers le bas par défaut */
+.has-dropdown .arrow-pc-only {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+/* Rotation de la flèche PC quand actif */
+.has-dropdown.active .arrow-pc-only {
+  transform: rotate(180deg);
+}
+
+/* Fenêtre de sous-menu sur PC */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  min-width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 10px 0;
+  list-style: none;
+  display: none; /* Caché par défaut */
+  z-index: 1010;
+}
+
+/* Affichage du sous-menu sur PC si la classe active est présente */
+.has-dropdown.active .dropdown-menu {
+  display: block;
+}
+
+/* Liens internes du sous-menu PC */
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-black);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--color-bg-nav);
+  color: var(--color-blue-active);
+}
+
+/* ==========================================================================
+   ADAPTATION DU DROPDOWN EN MODE RESPONSIVE MOBILE
+   ========================================================================== */
+@media (max-width: 1150px) {
+  .has-dropdown > a {
+    width: 100%;
+  }
+
+  /* Rotation du chevron droit (>) vers le bas (v) sur mobile */
+  .has-dropdown.active .arrow-mobile-only {
+    transform: rotate(90deg);
+  }
+
+  /* Redéfinition du conteneur pour le flux vertical sur Mobile */
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    width: 100%; 
+    box-shadow: none;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.02); /* Effet d'enfoncement discret */
+    padding: 0;
+    border-bottom: 1px solid var(--color-border-gray);
+  }
+
+  .dropdown-menu li a {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a5568;
+    border-bottom: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* --- EXTENSION DU STYLE POUR LE FOOTER --- */

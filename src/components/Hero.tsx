@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link"; // Importation du composant Link
 
 interface Slide {
   id: number;
@@ -10,6 +11,7 @@ interface Slide {
   warning?: string;
   badge?: string;
   buttonText: string;
+  buttonLink: string; // Ajout du type pour le lien
   imageSrc: string;
   imageAlt: string;
 }
@@ -21,7 +23,8 @@ const slides: Slide[] = [
     highlight: "wohnkredit99",
     subtitle: "Vous rêvez de devenir propriétaire ? Notre prêt immobilier vous le permet.",
     buttonText: "Calculateur de prêt en ligne",
-    imageSrc: "/img/wohnhome.png", // Remplace par ton image de brouette/cartons
+    buttonLink: "https://bank99.at/wohnfinanzierung/wohnkredit99#rechner", // Mets ton lien ici
+    imageSrc: "/img/wohnhome.png",
     imageAlt: "Projet de maison de rêve wohnkredit99"
   },
   {
@@ -30,9 +33,9 @@ const slides: Slide[] = [
     highlight: "",
     subtitle: "",
     warning: "Avertissement relatif aux risques : Les investissements dans des instruments financiers comportent des risques, y compris la perte possible du capital investi.",
-    // badge: "Bis zu € 90 Bonus sichern",
     buttonText: "Concernant la campagne",
-    imageSrc: "/img/ACERNITROGAMINGHEADSET.png", // Remplace par ton image d'arrosoir/plantes
+    buttonLink: "https://bank99.at/investieren", // Mets ton lien ici
+    imageSrc: "/img/ACERNITROGAMINGHEADSET.png",
     imageAlt: "Investissement bonus"
   },
   {
@@ -41,7 +44,8 @@ const slides: Slide[] = [
     highlight: "rundumkredit99",
     subtitle: "Des voitures neuves aux rénovations : avec rundumkredit99, vous pouvez financer tout ce dont vous avez besoin – rapidement, en toute transparence et facilement.",
     buttonText: "Calculer le prêt",
-    imageSrc: "/img/sofa.png", // Remplace par ton image de canapé puzzle
+    buttonLink: "https://bank99.at/kredit/rundumkredit99#rechner", // Mets ton lien ici
+    imageSrc: "/img/sofa.png",
     imageAlt: "Crédit rundumkredit99"
   }
 ];
@@ -49,7 +53,7 @@ const slides: Slide[] = [
 export default function Hero() {
   const [current, setCurrent] = useState(0);
 
-  // Défilement automatique toutes les 6 secondes
+  // Défilement automatique toutes les 7 secondes
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -81,9 +85,10 @@ export default function Hero() {
                 {slide.subtitle && <p className="hero-subtitle">{slide.subtitle}</p>}
                 {slide.warning && <p className="hero-warning">{slide.warning}</p>}
                 
-                <button className="hero-btn">
+                {/* Le bouton devient un Link pour la redirection de Next.js */}
+                <Link href={slide.buttonLink} className="hero-btn">
                   {slide.buttonText} <i className="fa-solid fa-arrow-right"></i>
-                </button>
+                </Link>
               </div>
 
               {/* CÔTÉ DROIT : IMAGE + BADGE OPTIONNEL */}

@@ -99,9 +99,9 @@ export default function Page() {
       <p>
         Avec un taux d’intérêt fixe, vous bénéficiez du taux d’intérêt actuel pour toute la durée du prêt et connaissez donc le coût du prêt dès le départ.
       </p>
-      <button className="btn-yellow-pill">
+      <a style={{textDecoration: "none"}} href='https://bank99.at/kredit' className="btn-yellow-pill">
         Accédez au calculateur de prêt ➔
-      </button>
+      </a>
     </div>
 
   </div>
@@ -116,9 +116,9 @@ export default function Page() {
       <p>
         Avec nous, vous bénéficiez des meilleures conditions, sans frais cachés, et de conseils compétents et fiables dès la première consultation.
       </p>
-      <button className="btn-yellow-pill">
+      <a style={{textDecoration: "none"}} href='https://bank99.at/wohnfinanzierung/wohnkredit99' className="btn-yellow-pill">
         À wohnkredit99 ➜
-      </button>
+      </a>
     </div>
      {/* COLONNE GAUCHE : IMAGE */}
     <div className="credit-image-box">
@@ -148,7 +148,7 @@ export default function Page() {
         <div className="news-content">
           <h3>Réduire les coûts fixes</h3>
           <p>Que comprennent exactement les coûts fixes et comment pouvez-vous économiser de l'argent à ce niveau ?</p>
-          <button className="btn-yellow-news">Plus d'informations</button>
+          <a style={{textDecoration: "none"}} href='https://bank99.at/blog/fixkosten-senken-tipps' className="btn-yellow-news">Plus d'informations</a>
         </div>
       </div>
 
@@ -160,7 +160,7 @@ export default function Page() {
         <div className="news-content">
           <h3>Opérations bancaires e...</h3>
           <p>Services bancaires numériques avec les applications meine99 et okay99.</p>
-          <button className="btn-yellow-news">Plus d'informations</button>
+          <a style={{textDecoration: "none"}}  href='https://bank99.at/blog/online-banking-bei-der-bank99-einfach-sicher-persoenlich' className="btn-yellow-news">Plus d'informations</a>
         </div>
       </div>
 
@@ -172,7 +172,7 @@ export default function Page() {
         <div className="news-content">
           <h3>Gagnez de l'argent rapi...</h3>
           <p>Pourquoi la stabilité financière à long terme est bien plus importante.</p>
-          <button className="btn-yellow-news">Plus d'informations</button>
+          <a style={{textDecoration: "none"}}  href='https://bank99.at/blog/schnell-geld-verdienen-ist-das-wirklich-moeglich' className="btn-yellow-news">Plus d'informations</a>
         </div>
       </div>
 
@@ -198,7 +198,7 @@ export default function Page() {
       <div className="ing-text-block">
         <h3>À tous les anciens clients d'ING :</h3>
         <p>
-          Vous y trouverez davantage d'informations. Toutes les informations sont disponibles <a href="#" className="ing-link">ici</a>.
+          Vous y trouverez davantage d'informations. Toutes les informations sont disponibles <a href="https://bank99.at/mehr-drin" className="ing-link">ici</a>.
         </p>
       </div>
     </div>
