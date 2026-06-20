@@ -44,7 +44,7 @@ const slides: Slide[] = [
     highlight: "rundumkredit99",
     subtitle: "Des voitures neuves aux rénovations : avec rundumkredit99, vous pouvez financer tout ce dont vous avez besoin – rapidement, en toute transparence et facilement.",
     buttonText: "Calculer le prêt",
-    buttonLink: "https://bank99.at/kredit/rundumkredit99#rechner", // Mets ton lien ici
+    buttonLink: "/calcul-pret", // Mets ton lien ici
     imageSrc: "/img/sofa.png",
     imageAlt: "Crédit rundumkredit99"
   }
