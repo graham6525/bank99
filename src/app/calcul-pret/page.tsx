@@ -41,9 +41,9 @@ export default function Hero() {
     }, 7000);
     return () => clearInterval(timer);
   }, []);
-
+ 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
+    setCurrent((prev) => (prev + 1) % slides.length); 
   };
 
   return (
