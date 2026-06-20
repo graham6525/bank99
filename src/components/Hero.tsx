@@ -23,7 +23,7 @@ const slides: Slide[] = [
     highlight: "wohnkredit99",
     subtitle: "Vous rêvez de devenir propriétaire ? Notre prêt immobilier vous le permet.",
     buttonText: "Calculateur de prêt en ligne",
-    buttonLink: "https://bank99.at/wohnfinanzierung/wohnkredit99#rechner", // Mets ton lien ici
+    buttonLink: "/calcul-pret", // Mets ton lien ici
     imageSrc: "/img/wohnhome.png",
     imageAlt: "Projet de maison de rêve wohnkredit99"
   },
