@@ -1250,3 +1250,176 @@
 }
 
 
+/* Arrière-plan avec l'image des montagnes */
+.login-page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/img/background-mountains.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+/* Conteneur principal blanc de l'interface */
+.login-card {
+  width: 100%;
+  max-width: 500px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* En-tête jaune distinctif */
+.card-header {
+  background-color: #ffde00; /* Jaune exact bank99 */
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 65px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+/* Bouton de retour à l'étape 1 */
+.back-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #1a1a1a;
+  cursor: pointer;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Corps du formulaire */
+.card-body {
+  padding: 24px;
+}
+
+.welcome-text {
+  font-size: 14px;
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Gestion des labels et des liens d'accessibilité */
+.input-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.input-group-header label {
+  font-size: 13px;
+  color: #666666;
+}
+
+.lang-links {
+  font-size: 13px;
+  color: #0066cc;
+}
+
+.lang-links a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.lang-links a:hover {
+  text-decoration: underline;
+}
+
+/* Champ de texte d'affichage de l'identifiant à l'étape 2 */
+.username-display {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1a1a1a;
+  padding: 2px 0;
+}
+
+/* Inputs stylisés */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  border-color: #ffde00;
+}
+
+/* Bouton jaune de soumission */
+.btn-yellow-submit {
+  width: 100%;
+  background-color: #ffde00;
+  color: #1a1a1a;
+  border: none;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  transition: background-color 0.2s;
+}
+
+.btn-yellow-submit:hover {
+  background-color: #ebd100;
+}
+
+/* Liens en bas de page */
+.form-footer-link {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.form-footer-link a {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.form-footer-link a:hover {
+  text-decoration: underline;
+}
+
+/* Alignement responsive sur mobile */
+@media (max-width: 480px) {
+  .login-card {
+    max-width: 100%;
+    box-shadow: none;
+  }
+  .login-page-wrapper {
+    padding: 0;
+    background: #ffffff; /* Optionnel : fond blanc uni sur mobile si préféré */
+  }
+}
+

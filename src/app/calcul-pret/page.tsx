@@ -51,7 +51,7 @@ export default function Hero() {
  
       <div className="hero-container">
 
-        <LoanCalculator />
+       
         {/* AFFICHAGE DES CARDS DU SLIDER */}
         <div className="hero-slider">
           {slides.map((slide, index) => (
@@ -91,6 +91,8 @@ export default function Hero() {
     </p>
   </div>
 </section>
+
+ <LoanCalculator />
 
         {/* NAVIGATION / DOTS EN BAS */}
         <div className="hero-navigation">

@@ -171,10 +171,12 @@ body {
     padding: 8px 10px;
     gap: 0;
   }
-  .nav-header  .nav-brand img{
-  width: 90px;
-  height: 40px;
-}
+
+  .nav-header .nav-brand img {
+    width: 90px;
+    height: 40px;
+  }
+
   /* Affichage de la recherche uniquement sur mobile */
   .mobile-search {
     display: flex !important;
@@ -200,19 +202,21 @@ body {
     cursor: pointer;
   }
 
-  /* RESTRUCTURATION COMPLÈTE DU CONTENU EN MODE MOBILE (FULLSCREEN) */
+  /* RESTRUCTURATION ET RENDU DÉFILABLE DU MENU SUR MOBILE */
   .nav-content {
     position: fixed;
     top: 80px;
     left: 0;
     right: 0;
     bottom: 0;
-    height: fit-content;
+    height: auto;
+    max-height: calc(100vh - 80px); /* Empêche le menu de dépasser de l'écran */
+    overflow-y: auto; /* Active le défilement vertical si le contenu est trop grand */
     background-color: var(--color-bg-nav);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Aligne le contenu vers le haut pour un défilement propre */
     margin-left: 0;
-    padding: 8px 10px;
+    padding: 15px 10px 40px 10px; /* Ajout d'un padding en bas pour respirer lors du défilement */
     display: flex;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
@@ -244,51 +248,145 @@ body {
     border-bottom: 1px solid var(--color-border-gray);
   }
 
+  /* GESTION DU DÉROULEMENT DES LIENS PRINCIPAUX */
+  .nav-links .dropdown-menu {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  .nav-links li.active .dropdown-menu {
+    display: block;
+  }
+
+  .nav-links .dropdown-menu li a {
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: none;
+    padding: 8px 12px;
+  }
 
   /* FILTRAGE STRICT DES ICÔNES MOBILES */
   .arrow-mobile-only {
-    display: block !important; /* Fait apparaitre le chevron droit (>) sur mobile */
+    display: block !important;
     font-size: 18px;
   }
 
   .chevron-pc-only {
-    display: none !important; /* Supprime le chevron bas (v) sur mobile */
+    display: none !important;
   }
 
   .arrow-btn-mobile-only {
-    display: inline-block !important; /* Fait apparaitre la flèche (->) sur les boutons mobile */
+    display: inline-block !important;
   }
 
-  /* MODULE FOOTER GRIS TOUT EN BAS SUR TÉLÉPHONE */
+  /* MODULE FOOTER DES BOUTONS EN BAS */
   .nav-buttons-container {
     width: 100%;
     background-color: var(--color-bg-mobile-footer);
-    padding: 8x 12px;
-    border-radius: 30px;
+    padding: 12px;
+    border-radius: 20px;
     margin-top: 30px;
+    height: auto; /* S'adapte dynamiquement lorsque le dropdown s'ouvre */
   }
 
+  /* Utilisation de Flexbox vertical pour que le bouton "Se connecter" soit repoussé lors du déroulement */
   .nav-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     width: 100%;
-    
-    /* margin-top: -200px; */
   }
 
-  /* Style plat gris clair pour les boutons en bas du mobile */
+  .btn-dropdown-wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  /* Style des boutons principaux */
   .nav-buttons .btn-yellow, 
   .nav-buttons .btn-outline {
     width: 100%;
     background-color: var(--color-bg-mobile-btn);
     color: var(--color-black);
     border: none;
-    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 14px;
     font-weight: 700;
-    padding: 14px 5px;
+    padding: 14px 20px;
     border-radius: 25px;
+  }
+
+  /* PREMIER NIVEAU : DROPDOWN "DEVENEZ CLIENT" */
+  .btn-dropdown-wrapper .dropdown-menu.button-dropdown {
+    display: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    padding: 10px 5px 0 5px;
+  }
+
+  .btn-dropdown-wrapper.active .dropdown-menu.button-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-dropdown-wrapper .dropdown-menu.button-dropdown li a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-black);
+  }
+
+  .btn-dropdown-wrapper .dropdown-menu.button-dropdown li strong {
+    font-size: 16px;
+    font-weight: 700;
+    display: block;
+  }
+
+  .btn-dropdown-wrapper .dropdown-menu.button-dropdown li p {
+    font-size: 13px;
+    color: #666666;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  /* DEUXIÈME NIVEAU : DÉROULEMENT DE "OUVRIR UN COMPTE" */
+  .sub-dropdown-trigger {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .sub-dropdown-menu {
+    display: none;
+    list-style: none;
+    padding-left: 15px;
+    margin-top: 5px;
+    border-left: 2px solid var(--color-border-gray);
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Affichage des options intérieures de "Ouvrir un compte" quand il est actif */
+  .has-sub-dropdown.sub-active .sub-dropdown-menu {
+    display: flex;
+  }
+
+  .sub-dropdown-menu li a {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    padding: 5px 0 !important;
+    color: var(--color-black) !important;
   }
 }
 
@@ -624,3 +722,5 @@ body {
     top: -15px;
   }
 }
+
+
