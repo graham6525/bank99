@@ -1423,3 +1423,345 @@
   }
 }
 
+
+
+/* Conteneur principal */
+.register-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #1a1a1a;
+}
+
+/* ==============================================
+   BARRE DE PROGRESSION (STEPPER)
+   ============================================== */
+.progress-stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e9ecef;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #777777;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  flex: 1;
+  justify-content: center;
+}
+
+.step-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* États du Stepper */
+.step-item.completed {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.step-item.completed .step-circle {
+  background-color: #ffde00; /* Jaune principal */
+  color: #1a1a1a;
+}
+
+.step-item.active {
+  color: #0066cc;
+  font-weight: 700;
+}
+.step-item.active .step-circle {
+  background-color: #0066cc;
+  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
+}
+
+/* ==============================================
+   CARTE DU FORMULAIRE
+   ============================================== */
+.register-card {
+  background-color: #f4f6f8;
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.form-section h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.form-section h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 35px 0 20px 0;
+}
+
+/* Structure en lignes flexibles */
+.form-group.row-flex {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.form-group.alignment-top {
+  align-items: flex-start;
+}
+
+.main-label {
+  width: 35%;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333333;
+  padding-right: 20px;
+  text-align: right;
+}
+
+.inputs-container {
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Éléments de champs de saisie */
+.inputs-container input[type="text"],
+.inputs-container input[type="password"],
+.inputs-container input[type="number"],
+.inputs-container input[type="email"],
+.inputs-container input[type="date"],
+.inputs-container input[type="tel"],
+.inputs-container select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.inputs-container input:focus,
+.inputs-container select:focus {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+/* Layouts spécifiques des conteneurs */
+.inputs-container.split-2 select {
+  width: 48%;
+  margin-right: 4%;
+}
+.inputs-container.split-2 select:last-child {
+  margin-right: 0;
+}
+
+.inputs-container.split-zip input:first-child {
+  width: 25%;
+  margin-right: 5%;
+}
+.inputs-container.split-zip input:last-child {
+  width: 70%;
+}
+
+.inputs-container.vertical-stack {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Icônes d'information bleues à droite */
+.inputs-container.has-info input,
+.inputs-container.has-info select {
+  padding-right: 40px;
+}
+
+.info-icon {
+  position: absolute;
+  right: -30px;
+  color: #0066cc;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Boîte d'information grise */
+.info-box-gray {
+  background-color: rgba(0, 102, 204, 0.06);
+  background-color: rgba(0, 102, 204, 0.06);
+  border-left: 4px solid #0066cc;
+  padding: 15px;
+  font-size: 13px;
+  color: #444444;
+  border-radius: 0 6px 6px 0;
+  line-height: 1.5;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Groupes de radios et listes de cases à cocher */
+.radio-group {
+  gap: 20px;
+}
+.radio-group label,
+.vertical-radio-list label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.vertical-radio-list {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkbox-list {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  max-height: 250px;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.checkbox-wrapper input {
+  margin-top: 4px;
+}
+
+/* Unité (EUR) collée au champ */
+.input-with-unit {
+  position: relative;
+}
+.input-with-unit input {
+  padding-right: 60px !important;
+}
+.unit-label {
+  position: absolute;
+  right: 15px;
+  font-size: 14px;
+  color: #777777;
+  font-weight: 600;
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 40px 0;
+}
+
+/* ==============================================
+   BOUTONS DE NAVIGATION
+   ============================================== */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 40px;
+  border-top: 2px solid #e0e0e0;
+  padding-top: 25px;
+}
+
+.btn-primary {
+  background-color: #ffde00;
+  color: #1a1a1a;
+  border: none;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: #ebd100;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #555555;
+  border: 1px solid #cccccc;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: #e9ecef;
+}
+
+/* Animation fluide de transition d'étapes */
+.animate-fade {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive pour mobiles et tablettes */
+@media (max-width: 850px) {
+  .form-group.row-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .main-label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+  }
+  .inputs-container {
+    width: 100%;
+  }
+  .info-icon {
+    right: 15px;
+    top: 15px;
+  }
+  .progress-stepper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

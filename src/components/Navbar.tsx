@@ -138,13 +138,13 @@ export default function Navbar() {
                 
                 <ul className="dropdown-menu button-dropdown">
                   <li>
-                    <Link href="#" onClick={() => setIsOpen(false)}>
+                    <Link href="/register" onClick={() => setIsOpen(false)}>
                       <strong>compte99</strong>
                       <p>Des services bancaires à votre image. Personnalisés, simples et abordables.</p>
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" onClick={() => setIsOpen(false)}>
+                    <Link href="/register" onClick={() => setIsOpen(false)}>
                       <strong>flexsparen99</strong>
                       <p>Épargnez en toute flexibilité grâce à votre compte d’épargne à accès quotidien.</p>
                     </Link>
@@ -152,7 +152,7 @@ export default function Navbar() {
                   
                   {/* OPTION AVEC SOUS-OPTIONS DÉROULANTES */}
                   <li className={`has-sub-dropdown ${activeSubDropdown === "OuvrirCompteOptions" ? "sub-active" : ""}`}>
-                    <a href="#" onClick={(e) => toggleSubDropdown("OuvrirCompteOptions", e)} className="sub-dropdown-trigger">
+                    <a href="register" onClick={(e) => toggleSubDropdown("OuvrirCompteOptions", e)} className="sub-dropdown-trigger">
                       <div>
                         <strong>Ouvrir un compte</strong>
                         <p>Entrez dans le monde des investissements avec le compte de courtage gratuit.</p>
@@ -163,12 +163,12 @@ export default function Navbar() {
                     {/* LE SOUS-MENU DE DEUXIÈME NIVEAU */}
                     <ul className="sub-dropdown-menu">
                       <li>
-                        <Link href="#" onClick={() => setIsOpen(false)}>
+                        <Link href="/register" onClick={() => setIsOpen(false)}>
                           Compte de courtage gratuit
                         </Link>
                       </li>
                       <li>
-                        <Link href="#" onClick={() => setIsOpen(false)}>
+                        <Link href="/register" onClick={() => setIsOpen(false)}>
                           Option d'investissement 99
                         </Link>
                       </li>
