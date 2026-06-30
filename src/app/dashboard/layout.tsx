@@ -3,20 +3,18 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AuthProvider, useAuth } from "@/context/AuthContext";
 import "./dashboard.css";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function DashboardContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   return (
     <div className="b99-master-container">
       
-      {/* HEADER VERSION DESKTOP (Inspiré de online-banking-laptop_2.png) */}
+      {/* HEADER VERSION DESKTOP */}
       <header className="b99-desktop-header desktop-only">
         <div className="b99-top-utility-bar">
           <div className="b99-brand-logo-zone">
@@ -30,40 +28,42 @@ export default function DashboardLayout({
           </div>
           
           <div className="b99-top-right-actions">
-            <button className="utility-link"><i className="fa-solid fa-magnifying-glass"></i> Suche</button>
+            <button className="utility-link"><i className="fa-solid fa-magnifying-glass"></i> Rechercher</button>
             <button className="utility-link">
               <span className="badge-wrapper">
                 <i className="fa-solid fa-bell"></i>
                 <span className="blue-counter-badge">3</span>
-              </span>
-              Mitteilungen
+              </span> 
+              Notifications
             </button>
             <div className="user-profile-pill">
               <i className="fa-regular fa-circle-user text-large"></i>
-              <span>Rosemarie Musterfrau</span>
+              <span>{user ? `${user.firstname} ${user.lastname}` : "Utilisateur"}</span>
             </div>
-            <button className="logout-action-btn"><i className="fa-solid fa-power-off"></i> Logout</button>
+            <button onClick={logout} className="logout-action-btn">
+              <i className="fa-solid fa-power-off"></i> Déconnexion
+            </button>
           </div>
         </div>
 
         {/* BANDEAU DE NAVIGATION JAUNE */}
         <nav className="b99-desktop-navbar">
           <Link href="/dashboard" className={pathname === "/dashboard" ? "nav-item active" : "nav-item"}>
-            <i className="fa-solid fa-house"></i> Meine Startseite
+            <i className="fa-solid fa-house"></i> Ma page d'accueil
           </Link>
           <Link href="/dashboard/finance" className={pathname === "/dashboard/finance" ? "nav-item active" : "nav-item"}>
-            <i className="fa-solid fa-wallet"></i> Finanzen
+            <i className="fa-solid fa-wallet"></i> Finances
           </Link>
           <Link href="/dashboard/auftraege" className="nav-item">
-            <i className="fa-solid fa-file-invoice-dollar"></i> Aufträge <span className="blue-counter-badge inline">4</span>
+            <i className="fa-solid fa-file-invoice-dollar"></i> Ordres <span className="blue-counter-badge inline">4</span>
           </Link>
           <Link href="/dashboard/service" className="nav-item">
-            <i className="fa-solid fa-gears"></i> Service <span className="blue-counter-badge inline">4</span>
+            <i className="fa-solid fa-gears"></i> Services <span className="blue-counter-badge inline">4</span>
           </Link>
         </nav>
       </header>
 
-      {/* HEADER VERSION MOBILE (Inspiré de WhatsApp Image 2026-06-20 at 13.30.29_2.jpeg) */}
+      {/* HEADER VERSION MOBILE */}
       <header className="b99-mobile-header mobile-only">
         <div className="mobile-header-left">
           <button className="mobile-action-trigger"><i className="fa-solid fa-chevron-left"></i></button>
@@ -76,22 +76,22 @@ export default function DashboardLayout({
           <button className="mobile-icon-btn"><i className="fa-solid fa-magnifying-glass"></i></button>
           <button className="mobile-icon-btn"><i className="fa-solid fa-bell"></i></button>
           <button className="mobile-icon-btn"><i className="fa-regular fa-circle-user"></i></button>
-          <button className="mobile-icon-btn"><i className="fa-solid fa-power-off"></i></button>
+          <button onClick={logout} className="mobile-icon-btn"><i className="fa-solid fa-power-off"></i></button>
         </div>
 
-        {/* TIROIR DE NAVIGATION MOBILE DISGRESSE */}
+        {/* TIROIR DE NAVIGATION MOBILE */}
         <nav className={`b99-mobile-drawer ${isMenuOpen ? "drawer-open" : ""}`}>
-          <Link href="/dashboard" onClick={() => setIsMenuOpen(false)}>Meine Startseite</Link>
-          <Link href="/dashboard/finance" onClick={() => setIsMenuOpen(false)}>Finanzen</Link>
-          <Link href="#" onClick={() => setIsMenuOpen(false)}>Aufträge (4)</Link>
-          <Link href="#" onClick={() => setIsMenuOpen(false)}>Service (4)</Link>
+          <Link href="/dashboard" onClick={() => setIsMenuOpen(false)}>Ma page d'accueil</Link>
+          <Link href="/dashboard/finance" onClick={() => setIsMenuOpen(false)}>Finances</Link>
+          <Link href="#" onClick={() => setIsMenuOpen(false)}>Ordres (4)</Link>
+          <Link href="#" onClick={() => setIsMenuOpen(false)}>Services (4)</Link>
         </nav>
       </header>
 
       {/* SOUS-BARRE D'ONGLETS SUB-NAV MOBILE */}
       <div className="b99-mobile-sub-tabs mobile-only">
-        <span className="sub-tab-link muted">Verlauf</span>
-        <span className="sub-tab-link active-yellow">Girokonto</span>
+        <span className="sub-tab-link muted">Historique</span>
+        <span className="sub-tab-link active-yellow">Compte Courant</span>
       </div>
 
       {/* ZONE CENTRALE DU CONTENU */}
@@ -99,5 +99,13 @@ export default function DashboardLayout({
         {children}
       </main>
     </div>
+  );
+}
+
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <AuthProvider>
+      <DashboardContent>{children}</DashboardContent>
+    </AuthProvider>
   );
 }

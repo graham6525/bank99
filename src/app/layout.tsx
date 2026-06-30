@@ -31,8 +31,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
       </head>
-      <body>
-        {/* On affiche la Navbar et le Footer uniquement si hideNavAndFooter est faux */}
+      {/* On ajoute l'attribut ici sur le body */}
+      <body suppressHydrationWarning={true}>
         {!hideNavAndFooter && <Navbar />}
         <main>{children}</main>
         {!hideNavAndFooter && <Footer />}

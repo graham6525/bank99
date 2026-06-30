@@ -12,7 +12,7 @@ export default function FinancePage() {
     <div className="b99-view-wrapper">
       {/* BANNIÈRE EN-TÊTE DE LA PAGE */}
       <div className="b99-finance-banner">
-        <h2>Notre prêt wohnkredit99</h2>
+        <h2>Notre prêt immobilier wohnkredit99</h2>
         <p>
           Notre prêt <strong>wohnkredit99</strong> vous permet d'emprunter entre 50 000 € et 1 000 000 € 
           pour financer l'acquisition de votre bien immobilier idéal. Vous pouvez choisir une durée de 
@@ -26,9 +26,9 @@ export default function FinancePage() {
         {/* BLOC DE GAUCHE : FORMULAIRE ET CURSEURS */}
         <div className="b99-card-panel">
           <div className="b99-simulator-tabs">
-            <button className="tab-trigger">achat</button>
+            <button className="tab-trigger">Achat immobilier</button>
             <button className="tab-trigger active-tab">
-              <i className="fa-solid fa-arrows-rotate"></i> Restructuration de la dette
+              <i className="fa-solid fa-arrows-rotate"></i> Restructuration de dettes
             </button>
           </div>
 
@@ -91,26 +91,26 @@ export default function FinancePage() {
 
             {/* SÉLECTEUR TYPE D'INTÉRÊT */}
             <div className="simulator-input-group">
-              <label className="input-section-title">Intérêt <i className="fa-regular fa-circle-question label-hint"></i></label>
+              <label className="input-section-title">Type d'intérêt <i className="fa-regular fa-circle-question label-hint"></i></label>
               <div className="toggle-grid-selection">
                 <button 
                   className={`choice-button ${isFixe ? "selected-brand-yellow" : ""}`}
                   onClick={() => setIsFixe(true)}
                 >
-                  réparer
+                  Taux fixe
                 </button>
                 <button 
                   className={`choice-button ${!isFixe ? "selected-brand-yellow" : ""}`}
                   onClick={() => setIsFixe(false)}
                 >
-                  variable
+                  Taux variable
                 </button>
               </div>
             </div>
 
             {/* SÉLECTEUR ANNÉES */}
             <div className="simulator-input-group">
-              <label className="input-section-title">Taux d'intérêt fixe en années <i className="fa-regular fa-circle-question label-hint"></i></label>
+              <label className="input-section-title">Durée du taux fixe (en années) <i className="fa-regular fa-circle-question label-hint"></i></label>
               <div className="years-grid-selection">
                 {[5, 10, 15, 20].map((year) => (
                   <button 
@@ -118,7 +118,7 @@ export default function FinancePage() {
                     className={`year-cell-button ${duree === year ? "selected-brand-yellow" : ""}`}
                     onClick={() => setDuree(year)}
                   >
-                    {year}
+                    {year} ans
                   </button>
                 ))}
               </div>
@@ -137,27 +137,27 @@ export default function FinancePage() {
                 <strong>89 000,00 €</strong>
               </div>
               <div className="metric-row-line">
-                <span>Montant total à payer</span>
+                <span>Montant total dû</span>
                 <strong>110 878,12 €</strong>
               </div>
               <div className="metric-row-line">
                 <span>Taux d'intérêt fixe pendant {duree} ans</span>
-                <strong>4,04 % p.A.</strong>
+                <strong>4,04 % nominal p.a.</strong>
               </div>
               <div className="metric-row-line">
                 <span>Taux d'intérêt effectif</span>
-                <strong>4,79 % p.A.</strong>
+                <strong>4,79 % TAEG p.a.</strong>
               </div>
               <div className="metric-row-line">
-                <span>Durée totale</span>
-                <strong>11 ans / jusqu'en juin 2037</strong>
+                <span>Durée totale du prêt</span>
+                <span>11 ans (jusqu'en juin 2037)</span>
               </div>
             </div>
 
             <hr className="dashed-separator-line" />
 
             <div className="monthly-display-block">
-              <span className="monthly-badge-label">tarif mensuel</span>
+              <span className="monthly-badge-label">Mensualité</span>
               <div className="monthly-price-alignment">
                 <h2>840,22 €</h2>
                 <p>taux d'intérêt fixe pendant {duree} ans</p>
@@ -166,10 +166,10 @@ export default function FinancePage() {
 
             <div className="finance-action-buttons">
               <button className="primary-action-yellow-btn">
-                prendre rendez-vous <i className="fa-solid fa-arrow-down"></i>
+                Prendre rendez-vous <i className="fa-solid fa-arrow-down"></i>
               </button>
               <button className="outline-action-dark-btn">
-                Enregistrer le résultat <i className="fa-solid fa-arrow-right"></i>
+                Enregistrer la simulation <i className="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
