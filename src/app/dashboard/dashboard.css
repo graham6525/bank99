@@ -1,0 +1,743 @@
+/* Réinitialisation de base et import police */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --b99-brand-yellow: #ffe600;
+  --b99-dark-charcoal: #1a1a1a;
+  --b99-bg-light: #f4f6f9;
+  --b99-border-grey: #e2e8f0;
+  --b99-text-dark: #2c3e50;
+  --b99-text-grey: #8a99a8;
+  --b99-color-green: #2ecc71;
+  --b99-color-red: #e74c3c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--b99-bg-light);
+  color: var(--b99-text-dark);
+}
+
+/* ------------------------------------------------------------- */
+/* CONFIGURATION DES EN-TÊTES DE DISPOSITIF (DESKTOP ET MOBILE)  */
+/* ------------------------------------------------------------- */
+
+.desktop-only { display: block; }
+.mobile-only { display: none; }
+
+/* Entête Ordinateur Portable (online-banking-laptop_2.png) */
+.b99-desktop-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--b99-border-grey);
+}
+
+.b99-top-utility-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.b99-brand-logo-zone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.b99-logo-yellow-box {
+  background: var(--b99-dark-charcoal);
+  color: #ffffff;
+  padding: 5px 12px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 3px;
+}
+.b99-logo-yellow-box .logo-num { color: var(--b99-brand-yellow); }
+
+.b99-post-horn-logo {
+  background: var(--b99-brand-yellow);
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+.b99-top-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.utility-link, .logout-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.badge-wrapper {
+  position: relative;
+}
+
+.blue-counter-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #0066cc;
+  color: #ffffff;
+  font-size: 10px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-counter-badge.inline {
+  position: relative;
+  display: inline-flex;
+  top: 0;
+  right: 0;
+  margin-left: 5px;
+}
+
+.user-profile-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* Bandeau navigation jaune Desktop */
+.b99-desktop-navbar {
+  background: var(--b99-brand-yellow);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 12px 0;
+}
+
+.b99-desktop-navbar .nav-item {
+  text-decoration: none;
+  color: var(--b99-dark-charcoal);
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ------------------------------------------------------------- */
+/* DISPOSITION ET GRILLE DES PAGES                               */
+/* ------------------------------------------------------------- */
+
+.b99-main-viewport {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.b99-user-hero-card {
+  background: #ffffff;
+  border: 1px solid var(--b99-border-grey);
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.hero-profile-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.avatar-placeholder {
+  font-size: 40px;
+  color: var(--b99-text-grey);
+}
+
+.btn-avatar-edit {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: var(--b99-text-grey);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hero-search-area h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.hero-input-container {
+  position: relative;
+  max-width: 450px;
+}
+
+.hero-input-container i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--b99-text-grey);
+}
+
+.hero-input-container input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 1px solid var(--b99-border-grey);
+  border-radius: 4px;
+}
+
+.b99-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 25px;
+}
+
+.b99-card-panel {
+  background: #ffffff;
+  border: 1px solid var(--b99-border-grey);
+  border-radius: 4px;
+}
+
+.panel-inner-padding {
+  padding: 24px;
+}
+
+/* Éléments de Carte Bancaire Intérieure */
+.credit-card-info-box {
+  border: 1px solid var(--b99-border-grey);
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.mock-card-graphic {
+  width: 45px;
+  height: 30px;
+  background: #cbd5e1;
+  border-radius: 3px;
+  position: relative;
+}
+
+.yellow-stripe-mini {
+  background: var(--b99-brand-yellow);
+  height: 6px;
+  width: 100%;
+  position: absolute;
+  top: 6px;
+}
+
+.account-type-label {
+  font-size: 13px;
+  color: var(--b99-text-grey);
+}
+
+.account-iban-code {
+  font-size: 16px;
+  color: #333;
+}
+
+.timeframe-selector-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--b99-border-grey);
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+/* Jauges financières de l'application */
+.gauge-financial-container {
+  margin-bottom: 20px;
+}
+
+.gauge-text-metric {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.lbl-muted { color: var(--b99-text-grey); }
+.val-bold { font-weight: 700; }
+
+.text-green { color: var(--b99-color-green); }
+.text-red { color: var(--b99-color-red); }
+
+.gauge-track {
+  background: #edf2f7;
+  height: 6px;
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.gauge-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.gauge-fill.bg-green { background-color: var(--b99-color-green); }
+.gauge-fill.bg-red { background-color: var(--b99-color-red); }
+
+.financial-breakdown-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid var(--b99-border-grey);
+  padding-top: 20px;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.structural-highlight {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.val-large {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.text-green-light { color: #27ae60; font-size: 14px; }
+
+/* Liste d'actions droite */
+.gray-header-strip-title {
+  background: #dbdee4;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.action-navigation-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-list-row-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--b99-border-grey);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.action-list-row-item:hover {
+  background: #f8fafc;
+}
+
+/* ------------------------------------------------------------- */
+/* ADAPTATION SMARTPHONE PURE (WhatsApp Image 2026-06-20)       */
+/* ------------------------------------------------------------- */
+
+@media (max-width: 868px) {
+  .desktop-only { display: none !important; }
+  .mobile-only { display: flex !important; }
+
+  /* En-tête Mobile Spécifique */
+  .b99-mobile-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--b99-border-grey);
+    padding: 12px 16px;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  .mobile-header-left, .mobile-header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .mobile-action-trigger, .mobile-icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #111111;
+    cursor: pointer;
+  }
+
+  /* Menu tiroir mobile */
+  .b99-mobile-drawer {
+    position: fixed;
+    top: 55px;
+    left: -100%;
+    width: 250px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .b99-mobile-drawer.drawer-open {
+    left: 0;
+  }
+
+  .b99-mobile-drawer a {
+    text-decoration: none;
+    color: var(--b99-text-dark);
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  /* Onglets inférieurs mobiles */
+  .b99-mobile-sub-tabs {
+    background: #ffffff;
+    padding: 8px 0;
+    justify-content: center;
+    gap: 15px;
+    border-bottom: 1px solid var(--b99-border-grey);
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .sub-tab-link.muted { color: var(--b99-text-grey); }
+  .sub-tab-link.active-yellow {
+    background: var(--b99-brand-yellow);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  /* Conteneurs forcés sur un seul bloc */
+  .b99-main-viewport {
+    padding: 12px 0;
+  }
+
+  .b99-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .b99-card-panel {
+    border: none;
+    border-radius: 0;
+  }
+
+  .no-padding-mobile {
+    background: transparent;
+  }
+}
+
+
+
+
+/* ==========================================================================
+   EXTENSIONS POUR LA PAGE FINANCES (SIMULATEUR DE CRÉDIT)
+   ========================================================================== */
+
+.b99-finance-banner {
+  background: #ffffff;
+  border: 1px solid var(--b99-border-grey);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.b99-finance-banner h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.b99-finance-banner p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+/* Grille adaptative 2 colonnes (Formulaire à gauche / Résultat à droite) */
+.b99-finance-split-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 25px;
+}
+
+.b99-simulator-tabs {
+  display: flex;
+  background: #f7fafc;
+  border-bottom: 1px solid var(--b99-border-grey);
+}
+
+.tab-trigger {
+  padding: 14px 24px;
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--b99-text-grey);
+}
+
+.tab-trigger.active-tab {
+  background: #ffffff;
+  color: #000000;
+  border-top: 3px solid var(--b99-brand-yellow);
+}
+
+.b99-form-gap {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.simulator-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.simulator-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.simulator-label-row label, .input-section-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.label-hint {
+  color: #0066cc;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.currency-box-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: #f8fafc;
+  width: 160px;
+}
+
+.currency-box-input span {
+  color: var(--b99-text-grey);
+  margin-right: 6px;
+  font-weight: 600;
+}
+
+.currency-box-input input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  text-align: right;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Curseur input range personnalisé */
+.b99-custom-range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  outline: none;
+}
+
+.b99-custom-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--b99-brand-yellow);
+  border: 2px solid var(--b99-dark-charcoal);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.slider-bounds-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--b99-text-grey);
+  font-weight: 600;
+}
+
+/* Grilles de boutons (Intérêts / Années) */
+.toggle-grid-selection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.years-grid-selection {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.choice-button, .year-cell-button {
+  padding: 14px;
+  background: #edf2f7;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: center;
+}
+
+.selected-brand-yellow {
+  background: var(--b99-brand-yellow) !important;
+  color: var(--b99-dark-charcoal);
+}
+
+/* Panneau de droite : Résultats */
+.b99-result-flex-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-grow {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.b99-result-flex-panel h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.result-metrics-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.metric-row-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.dashed-separator-line {
+  border: none;
+  border-top: 1px dashed #cbd5e1;
+  margin: 24px 0;
+}
+
+.monthly-display-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.monthly-badge-label {
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: var(--b99-text-dark);
+}
+
+.monthly-price-alignment {
+  text-align: right;
+}
+
+.monthly-price-alignment h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--b99-dark-charcoal);
+}
+
+.monthly-price-alignment p {
+  font-size: 12px;
+  color: var(--b99-text-grey);
+}
+
+/* Boutons d'actions en bas à droite */
+.finance-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.primary-action-yellow-btn {
+  background-color: var(--b99-brand-yellow);
+  border: 1px solid #ebd500;
+  padding: 14px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.outline-action-dark-btn {
+  background: transparent;
+  border: 1px solid var(--b99-dark-charcoal);
+  padding: 14px;
+  font-weight: 700;
+  border-radius: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   AJUSTEMENTS MÉDIAS QUERY POUR LE COMPORTEMENT MOBILE SUR CETTE PAGE
+   ========================================================================== */
+
+@media (max-width: 868px) {
+  .b99-finance-split-layout {
+    grid-template-columns: 1fr !important; /* Force le passage sur une colonne sur smartphone */
+    gap: 16px;
+  }
+
+  .b99-finance-banner {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 16px 16px 0 16px;
+  }
+
+  .years-grid-selection {
+    grid-template-columns: repeat(2, 1fr); /* Les cases d'années s'organisent en 2x2 sur mobile */
+  }
+}

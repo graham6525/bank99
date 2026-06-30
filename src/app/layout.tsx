@@ -13,8 +13,8 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
 
-  // Liste des routes où la nav et le footer doivent être masqués
-  const isAuthPage = pathname === "/login";
+  // Masquer la nav et le footer si on est sur la page de login OU sur le dashboard
+  const hideNavAndFooter = pathname === "/login" || pathname.startsWith("/dashboard");
 
   return (
     <html lang="fr">
@@ -32,9 +32,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
       </head>
       <body>
-        {!isAuthPage && <Navbar />}
+        {/* On affiche la Navbar et le Footer uniquement si hideNavAndFooter est faux */}
+        {!hideNavAndFooter && <Navbar />}
         <main>{children}</main>
-        {!isAuthPage && <Footer />}
+        {!hideNavAndFooter && <Footer />}
       </body>
     </html>
   );
